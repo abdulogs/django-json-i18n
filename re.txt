@@ -1,0 +1,31 @@
+settings.py
+
+// Internationalization
+
+LANGUAGE_CODE = 'ur'
+
+LANGUAGES = (
+    ("en", ("English")),
+    ("ur", ("Urdu"))
+)
+
+// Middleware
+'django.middleware.locale.LocaleMiddleware',
+
+
+# urls.py
+from django.conf.urls.i18n import i18n_patterns
+
+urlpatterns += i18n_patterns (
+ // all urls
+)
+
+# locale folder
+
+
+
+# helpers.py
+from functools import reduce
+
+def deep_get(dictionary, keys, default=None):
+    return reduce(lambda d, key: d.get(key, default) if isinstance(d, dict) else default, keys.split("."), dictionary)
